@@ -785,6 +785,9 @@ if [ "$UNINSTALL" = true ]; then
   echo "Removing the Beszel Agent directory..."
   rm -rf "$AGENT_DIR"
 
+  echo "Removing the Beszel Agent data directory..."
+  rm -rf /var/lib/beszel-agent
+
   if ! is_entware; then
     echo "Removing the dedicated user for the agent service..."
     killall beszel-agent 2>/dev/null || true # Usually already stopped by the service manager.
